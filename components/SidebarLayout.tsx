@@ -45,6 +45,7 @@ const data = {
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
+
   return (
     <SidebarProvider>
       <Sidebar>
@@ -77,14 +78,23 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
-              {pathNames.map((path, index) => (
-                <div key={`key-${path}-${index}`}>
-                  <BreadcrumbSeparator className="hidden md:block" />
-                  <BreadcrumbItem key={index}>
-                    <BreadcrumbLink href={`/${path}`}>{path}</BreadcrumbLink>
-                  </BreadcrumbItem>
-                </div>
-              ))}
+              {pathNames.map((path, index) => {
+                const isLast = index === pathNames.length - 1;
+                return (
+                  <React.Fragment key={index}>
+                    <BreadcrumbSeparator className="hidden md:block" />
+                    <BreadcrumbItem>
+                      {isLast ? (
+                        <span>{path}</span>
+                      ) : (
+                        <BreadcrumbLink href={`/${path}`}>
+                          {path}
+                        </BreadcrumbLink>
+                      )}
+                    </BreadcrumbItem>
+                  </React.Fragment>
+                );
+              })}
             </BreadcrumbList>
           </Breadcrumb>
         </header>
