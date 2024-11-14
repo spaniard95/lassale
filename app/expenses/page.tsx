@@ -8,8 +8,8 @@ export default async function ExpensesPage() {
     <div>
       <h1>Expenses</h1>
       <ul>
-        {expenses.map((item: any) => (
-          <li key={item.id}>
+        {expenses.map((item) => (
+          <li key={item.expense_id}>
             {item.category_name} -{item.subcategory_name} - {item.amount}
           </li>
         ))}
