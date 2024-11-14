@@ -33,8 +33,8 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Expences",
-          url: "/expences",
+          title: "Expenses",
+          url: "/expenses",
           isActive: true,
         },
       ],
