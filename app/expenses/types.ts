@@ -1,4 +1,4 @@
-export type ExpenseDto = {
+export type ExpenseDTO = {
   expense_id: number;
   expense_date: string;
   notes: string;
@@ -7,4 +7,6 @@ export type ExpenseDto = {
   subcategory_name: string;
 };
 
-export type GetExpensesResponse = ExpenseDto[];
+export type GetExpensesResponse = {
+  expenses: ExpenseDTO[];
+};
