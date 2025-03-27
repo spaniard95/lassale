@@ -1,4 +1,4 @@
-import { ExpenseDTO } from "@/app/expenses/types";
+import { ExpenseDTO } from "@/services/expenses";
 import {
   Table,
   TableBody,
@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getCurrentMonthNumber, getMonthName } from "@/lib/utils";
 
 type MonthTableProps = {
   expenses: ExpenseDTO[];
@@ -17,7 +18,6 @@ type MonthTableProps = {
 export function MonthTable({ expenses }: MonthTableProps) {
   return (
     <Table>
-      <TableCaption>Current month Expenses</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Category</TableHead>
@@ -27,14 +27,16 @@ export function MonthTable({ expenses }: MonthTableProps) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {expenses.map((expense) => (
-          <TableRow key={expense.expense_id}>
-            <TableCell>{expense.category_name}</TableCell>
-            <TableCell>{expense.subcategory_name}</TableCell>
-            <TableCell>{expense.amount}</TableCell>
-            <TableCell className="text-right">{expense.amount}</TableCell>
-          </TableRow>
-        ))}
+        {expenses.map(
+          ({ amount, category_name, expense_id, subcategory_name }) => (
+            <TableRow key={expense_id}>
+              <TableCell>{category_name}</TableCell>
+              <TableCell>{subcategory_name}</TableCell>
+              <TableCell>{amount}</TableCell>
+              <TableCell className="text-right">{amount}</TableCell>
+            </TableRow>
+          )
+        )}
       </TableBody>
       <TableFooter>
         <TableRow>

@@ -11,7 +11,6 @@ export function getCurrentMonth() {
 
 export const getCurrentMonthNumber = () => new Date().getMonth() + 1;
 
-// without locale, only english month names
 export function getMonthName(month: number) {
   return new Date(0, month - 1).toLocaleString("en-US", { month: "long" });
 }

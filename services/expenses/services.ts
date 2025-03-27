@@ -16,5 +16,6 @@ export async function fetchExpensesByMonth(
 
 export async function getCategoriesAndSubcategories() {
   const response = await fetch(`${process.env.B4F_URL}/expenses/categories`);
+  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
   return await response.json();
 }
