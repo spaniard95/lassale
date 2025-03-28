@@ -1,18 +1,10 @@
 import { MonthTable } from "@/components/expenses/month-table";
 import { getCurrentMonthNumber, getMonthName } from "@/lib/utils";
-import {
-  CategoryDTO,
-  ExpenseDTO,
-  getCategoriesAndSubcategories,
-} from "@/services/expenses";
-
-// import { fetchExpensesByMonth } from "@/services/expenses";
+import { ExpenseDTO, getCategoriesAndSubcategories } from "@/services/expenses";
 
 export default async function ExpensesPage() {
   const currentMonth = getCurrentMonthNumber();
 
-  // console.log(currentMonth);
-  // const { expenses } = await fetchExpensesByMonth(currentMonth);
   const { categories } = await getCategoriesAndSubcategories();
 
   const demoExpenses: ExpenseDTO[] = [
@@ -42,32 +34,32 @@ export default async function ExpensesPage() {
     },
   ];
 
-  const demoCategories: CategoryDTO[] = [
-    {
-      id: 1,
-      name: "Food",
-      subcategories: [
-        { id: 1, name: "Groceries" },
-        { id: 2, name: "Dining Out" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Transportation",
-      subcategories: [
-        { id: 3, name: "Public Transport" },
-        { id: 4, name: "Gas" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Entertainment",
-      subcategories: [
-        { id: 5, name: "Movies" },
-        { id: 6, name: "Concerts" },
-      ],
-    },
-  ];
+  // const demoCategories: CategoryDTO[] = [
+  //   {
+  //     id: 1,
+  //     name: "Food",
+  //     subcategories: [
+  //       { id: 1, name: "Groceries" },
+  //       { id: 2, name: "Dining Out" },
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Transportation",
+  //     subcategories: [
+  //       { id: 3, name: "Public Transport" },
+  //       { id: 4, name: "Gas" },
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Entertainment",
+  //     subcategories: [
+  //       { id: 5, name: "Movies" },
+  //       { id: 6, name: "Concerts" },
+  //     ],
+  //   },
+  // ];
 
   const categoriesMonthGoals: { [key: string]: number } = {
     1: 500,
