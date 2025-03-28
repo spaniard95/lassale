@@ -1,4 +1,4 @@
-import { GetExpensesResponse } from "./types";
+import { GetCategoriesResponse, GetExpensesResponse } from "./types";
 
 export async function fetchAllExpenses(): Promise<GetExpensesResponse> {
   const response = await fetch(`${process.env.B4F_URL}/expenses/all`);
@@ -14,8 +14,8 @@ export async function fetchExpensesByMonth(
   return await response.json();
 }
 
-export async function getCategoriesAndSubcategories() {
+export async function getCategoriesAndSubcategories(): Promise<GetCategoriesResponse> {
   const response = await fetch(`${process.env.B4F_URL}/expenses/categories`);
-  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+
   return await response.json();
 }
