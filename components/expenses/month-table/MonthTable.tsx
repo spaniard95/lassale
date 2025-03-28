@@ -15,15 +15,15 @@ import {
 } from "@/services/expenses/utils";
 
 type MonthTableProps = {
-  expenses: ExpenseDTO[];
-  categories: CategoryDTO[];
-  categoriesMonthGoals: { [key: string]: number };
+  expenses?: ExpenseDTO[];
+  categories?: CategoryDTO[];
+  categoriesMonthGoals?: { [key: string]: number };
 };
 
 export function MonthTable({
-  expenses,
-  categories,
-  categoriesMonthGoals,
+  expenses = [],
+  categories = [],
+  categoriesMonthGoals = {},
 }: MonthTableProps) {
   const categoriesAmounts = getCategoriesAmounts(expenses);
 
