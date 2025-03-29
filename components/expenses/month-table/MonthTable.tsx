@@ -45,9 +45,11 @@ export function MonthTable({
           <TableRow key={id}>
             <TableCell>{name}</TableCell>
             <TableCell>
-              {subcategories?.map((subCategory) => `${subCategory?.name}, `)}
+              {subcategories
+                ?.map((subCategory) => subCategory?.name)
+                .join(", ")}
             </TableCell>
-            <TableCell>{categoriesMonthGoals?.[id] ?? 0}</TableCell>
+            <TableCell>{categoriesMonthGoals?.[id] ?? "Not set"}</TableCell>
             <TableCell>{categoriesAmounts?.[id] ?? 0}</TableCell>
           </TableRow>
         ))}

@@ -14,7 +14,7 @@ export async function fetchExpensesByMonth(
   return await response.json();
 }
 
-export async function getCategoriesAndSubcategories(): Promise<GetCategoriesResponse> {
+export async function fetchCategoriesAndSubcategories(): Promise<GetCategoriesResponse> {
   const response = await fetch(`${process.env.B4F_URL}/expenses/categories`);
 
   return await response.json();
