@@ -19,7 +19,7 @@ export default async function ExpensesPage() {
 
   return (
     <div>
-      <h2 className="mb-1 pl-2 text-3xl font-bold">
+      <h2 className="mb-1 pl-2 text-2xl font-bold">
         {getMonthName(currentMonth)} Expenses
       </h2>
       <MonthTable

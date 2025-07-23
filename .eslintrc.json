@@ -1,3 +1,13 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // "no-unused-vars": "off", // Disable the base rule
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+
+    "react/prop-types": "off"
+  }
 }

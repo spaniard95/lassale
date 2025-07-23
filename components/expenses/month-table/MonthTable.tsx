@@ -14,6 +14,8 @@ import {
   getGoalsTotalAmount,
 } from "@/services/expenses/utils";
 
+import { DropdownKebab } from "./components/DropdownKebab";
+
 type MonthTableProps = {
   expenses?: ExpenseDTO[];
   categories?: CategoryDTO[];
@@ -38,6 +40,7 @@ export function MonthTable({
           <TableHead>Subcategories</TableHead>
           <TableHead>Goal</TableHead>
           <TableHead>Amount</TableHead>
+          <TableHead></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -51,6 +54,9 @@ export function MonthTable({
             </TableCell>
             <TableCell>{categoriesMonthGoals?.[id] ?? "Not set"}</TableCell>
             <TableCell>{categoriesAmounts?.[id] ?? 0}</TableCell>
+            <TableCell>
+              <DropdownKebab payment={{ id: id.toString() }} />
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -58,7 +64,7 @@ export function MonthTable({
         <TableRow>
           <TableCell colSpan={2}>Total</TableCell>
           <TableCell>{goalsTotalAmount}</TableCell>
-          <TableCell>{categoriesTotalAmount}</TableCell>
+          <TableCell colSpan={2}>{categoriesTotalAmount}</TableCell>
         </TableRow>
       </TableFooter>
     </Table>
