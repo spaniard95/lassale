@@ -7,7 +7,7 @@
       "error",
       { "argsIgnorePattern": "^_" }
     ],
-
+    "no-console": "error",
     "react/prop-types": "off"
   }
 }

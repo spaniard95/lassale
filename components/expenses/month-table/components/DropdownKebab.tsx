@@ -18,7 +18,7 @@ interface DropdownKebabProps {
   payment: { id: string };
 }
 
-export function DropdownKebab({ payment }: DropdownKebabProps) {
+export function DropdownKebab({}: DropdownKebabProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
@@ -39,7 +39,9 @@ export function DropdownKebab({ payment }: DropdownKebabProps) {
           </DropdownMenuItem>
           <DropdownMenuItem>Delete Subcategory</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => console.error("Expseses")}>
+          <DropdownMenuItem
+          // onClick={() => console.error("Expenses not implemented")}
+          >
             View expenses
           </DropdownMenuItem>
         </DropdownMenuContent>

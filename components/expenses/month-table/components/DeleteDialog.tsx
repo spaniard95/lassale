@@ -18,12 +18,15 @@ export function DeleteDialog({ setIsDialogOpen }: DeleteDialogProps) {
       <DialogHeader>
         <DialogTitle>Delete</DialogTitle>
         <DialogDescription>
-          Make changes to your profile here. Click save when you're done.
+          Make changes to your profile here. Click save when you&#39;re done.
         </DialogDescription>
       </DialogHeader>
 
       <DialogFooter>
-        <Button variant="destructive" onClick={() => console.log("Deleted")}>
+        <Button
+          variant="destructive"
+          //onClick={() => console.log("Deleted")}
+        >
           Delete
         </Button>
         <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
