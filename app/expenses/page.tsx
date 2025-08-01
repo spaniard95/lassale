@@ -10,6 +10,8 @@ import {
 } from "@/services/expenses";
 import { useQuery } from "@tanstack/react-query";
 import { useMonthNavigation } from "@/hooks/useMonthNavigation";
+import { toast } from "sonner";
+import { useEffect } from "react";
 
 export default function ExpensesPage() {
   const { selectedMonth, handlePreviousMonth, handleNextMonth } =
@@ -23,7 +25,7 @@ export default function ExpensesPage() {
 
   const {
     data: expensesData,
-    // error,
+    error,
     isLoading,
   } = useQuery({
     queryKey: ["expenses", selectedMonth],
@@ -32,6 +34,14 @@ export default function ExpensesPage() {
       return { expenses }; // Return the destructured data
     },
   });
+
+  useEffect(() => {
+    if (error) {
+      toast.error(
+        "Failed to load expenses. Please try again later." + error.message
+      );
+    }
+  }, [error]);
 
   const categoriesMonthGoals: { [key: string]: number } = {
     1: 500, // id 1 -> hobbies
