@@ -1,6 +1,6 @@
 import { GetCategoriesResponse, GetExpensesResponse } from "./types";
 
-const BASE_URL = process.env.BE_URL || "https://murat.deno.dev";
+const BASE_URL = process.env.NEXT_PUBLIC_BE_URL || "http://localhost:4000";
 
 export async function fetchAllExpenses(): Promise<GetExpensesResponse> {
   const response = await fetch(`${BASE_URL}/expenses/all`);
