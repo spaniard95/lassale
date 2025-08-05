@@ -1,6 +1,6 @@
 import { GetCategoriesResponse, GetExpensesResponse } from "./types";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://murat.deno.dev";
 
 export async function fetchAllExpenses(): Promise<GetExpensesResponse> {
   const response = await fetch(`${BASE_URL}/expenses/all`);
