@@ -1,6 +1,6 @@
 import { GetCategoriesResponse, GetExpensesResponse } from "./types";
 
-const BASE_URL = "https://murat-aq7njjehmf8q.deno.dev";
+const BASE_URL = "http://localhost:4000";
 
 export async function fetchAllExpenses(): Promise<GetExpensesResponse> {
   const response = await fetch(`${BASE_URL}/expenses/all`);
@@ -8,9 +8,12 @@ export async function fetchAllExpenses(): Promise<GetExpensesResponse> {
 }
 
 export async function fetchExpensesByMonth(
-  month: number
+  month: number,
+  year: number
 ): Promise<GetExpensesResponse> {
-  const response = await fetch(`${BASE_URL}/expenses/all/date?month=${month}`);
+  const response = await fetch(
+    `${BASE_URL}/expenses/all/date?month=${month}&year=${year}`
+  );
   return await response.json();
 }
 
@@ -19,3 +22,18 @@ export async function fetchCategoriesAndSubcategories(): Promise<GetCategoriesRe
 
   return await response.json();
 }
+
+// export async function fetchExpensesByYear(
+//   year: number
+// ): Promise<GetExpensesResponse> {
+//   const response = await fetch(`${BASE_URL}/expenses/all/date?year=${year}`);
+
+//   if (!response.ok) {
+//     const errorText = await response.text();
+//     throw new Error(
+//       `Failed to fetch expenses by year: ${response.status} - ${errorText}`
+//     );
+//   }
+
+//   return await response.json();
+// }

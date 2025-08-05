@@ -11,6 +11,8 @@ export function getCurrentMonth() {
 
 export const getCurrentMonthNumber = () => new Date().getMonth() + 1;
 
+export const getCurrentYear = () => new Date().getFullYear();
+
 export function getMonthName(month: number) {
   return new Date(0, month - 1).toLocaleString("en-US", { month: "long" });
 }

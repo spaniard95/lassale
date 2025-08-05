@@ -29,16 +29,13 @@ export default function ExpensesPage() {
     isLoading,
   } = useQuery({
     queryKey: ["expenses", selectedMonth],
-    queryFn: async () => {
-      const { expenses } = await fetchExpensesByMonth(selectedMonth);
-      return { expenses }; // Return the destructured data
-    },
+    queryFn: () => fetchExpensesByMonth(selectedMonth),
   });
 
   useEffect(() => {
     if (error) {
       toast.error(
-        "Failed to load expenses. Please try again later." + error.message
+        "Failed to load expenses. Please try again later. " + error.message
       );
     }
   }, [error]);
@@ -71,13 +68,6 @@ export default function ExpensesPage() {
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
-        <Button
-          variant={"outline"}
-          type="button"
-          // onClick={() => { /* open add expense modal or navigate */ }}
-        >
-          Add Category
-        </Button>
       </div>
 
       <div className="mt-6">

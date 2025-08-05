@@ -26,6 +26,8 @@ import {
 } from "./ui/breadcrumb";
 
 import { usePathname } from "next/navigation";
+import { getCurrentYear } from "@/lib/utils";
+
 const data = {
   navMain: [
     {
@@ -36,6 +38,10 @@ const data = {
           title: "Expenses",
           url: "/expenses",
           isActive: true,
+        },
+        {
+          title: "Expenses v2",
+          url: `/expensesv2/${getCurrentYear()}`,
         },
       ],
     },
