@@ -21,7 +21,7 @@ export function Dashboard({ categories, selectedYear }: DashboardProps) {
   const {
     data: expensesData,
     error,
-    isLoading,
+    // isLoading,
   } = useQuery({
     queryKey: ["expenses", selectedMonth, selectedYear],
     queryFn: () => fetchExpensesByMonth(selectedMonth, selectedYear),
@@ -35,7 +35,7 @@ export function Dashboard({ categories, selectedYear }: DashboardProps) {
       );
     }
   }, [error]);
-  console.log("expensesData", expensesData);
+
   return (
     <div className="space-y-4">
       {/* Month Navigation */}

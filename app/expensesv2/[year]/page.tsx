@@ -1,19 +1,15 @@
 import { Dashboard } from "@/components/expenses/dashboard";
-import { MonthTable } from "@/components/expenses/month-table";
-import {
-  fetchCategoriesAndSubcategories,
-  fetchExpensesByYear,
-} from "@/services/expenses/services";
-import { revalidatePath } from "next/cache";
+import { fetchCategoriesAndSubcategories } from "@/services/expenses/services";
+// import { revalidatePath } from "next/cache";
 
 // Server Action
-async function refreshCategories() {
-  "use server";
+// async function refreshCategories() {
+//   "use server";
 
-  revalidatePath("/expensesv2/[year]", "page");
+//   revalidatePath("/expensesv2/[year]", "page");
 
-  return await fetchCategoriesAndSubcategories();
-}
+//   return await fetchCategoriesAndSubcategories();
+// }
 
 export default async function Page({
   params,
