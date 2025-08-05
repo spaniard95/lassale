@@ -29,7 +29,7 @@ export default function ExpensesPage() {
     isLoading,
   } = useQuery({
     queryKey: ["expenses", selectedMonth],
-    queryFn: () => fetchExpensesByMonth(selectedMonth),
+    queryFn: () => fetchExpensesByMonth(selectedMonth, 2025),
   });
 
   useEffect(() => {
